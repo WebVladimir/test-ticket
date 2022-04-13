@@ -1,0 +1,336 @@
+@import "../../styles/helpers";
+
+.tickets {
+    &__wrapper {
+        margin-top: 21px;
+    }
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
+    &__statuses {
+        display: flex;
+        align-items: center;
+    }
+
+    &__status {
+        margin-right: 42px;
+        position: relative;
+        cursor: pointer;
+        transition: all 200ms;
+
+        &:last-child {
+            margin-right: 15px;
+
+            &:after {
+                display: none;
+            }
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            right: -21px;
+            top: 0;
+            height: 22px;
+            width: 2px;
+            top: 50%;
+            transform: translate(0, -50%);
+            background: #868686;
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &__status-text {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 120%;
+        color: #868686;
+
+        &_active {
+            color: #556bf4;
+        }
+    }
+
+    &__search {
+        max-width: 240px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #f4f5fd;
+        border-radius: 12px;
+        margin-bottom: 32px;
+    }
+
+    &__bottom {
+        padding-bottom: 64px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__all-tickets {
+        max-width: 270px;
+    }
+
+    &__paginations {
+        max-width: 236px;
+    }
+}
+
+.search {
+    &__box {
+        position: relative;
+
+        &:before {
+            content: "";
+            .img("ico-search.svg");
+            .cover;
+            position: absolute;
+            left: 16px;
+            top: 10px;
+            display: block;
+            width: 32px;
+            height: 32px;
+            z-index: 1;
+            cursor: pointer;
+        }
+    }
+
+    &__input {
+        position: relative;
+        width: 100%;
+        padding: 16px 10px 16px 56px;
+        font-size: 16px;
+        line-height: 20px;
+        color: #868686;
+        border: 2px solid #f4f5fd;
+        border-radius: 12px;
+        box-sizing: border-box;
+    }
+}
+
+.ticket {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #141414;
+    font-weight: 400;
+    font-size: 16px;
+    border-bottom: 1px solid #f4f5fd;
+
+    &:last-child {
+        border: none;
+    }
+
+    &__user {
+        flex: 0 0 11.51vw;
+    }
+
+    &__user-name {
+        display: inline-block;
+    }
+
+    &__user-avatar {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-right: 15px;
+    }
+
+    &__date {
+        flex: 0 0 10.677vw;
+        flex-direction: column;
+        justify-content: center;
+
+        &_top {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    &__date-text {
+        align-self: start;
+
+        &_top {
+            align-self: center;
+            margin-right: 5px;
+        }
+    }
+
+    &__date-time {
+        color: #868686;
+        align-self: start;
+    }
+
+    &__date-ico {
+        .img("ico-sort.svg");
+        width: 20px;
+        height: 20px;
+    }
+
+    &__theme {
+        flex: 0 0 16.927vw;
+    }
+
+    &__cell {
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        min-height: 60px;
+        border-left: 1px solid #f4f5fd;
+        cursor: default;
+    }
+
+    &__description-problem {
+        flex: 0 1 auto;
+        overflow: hidden;
+        padding-right: 60px;
+    }
+
+    &__number {
+        flex: 0 0 6.094vw;
+        border: none;
+    }
+
+    &_top {
+        background: #e5e8ff;
+        font-weight: 500;
+        font-size: 18px;
+        border-radius: 12px 12px 0 0;
+    }
+
+    &__btn {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        transition: all 200ms;
+
+        &:hover {
+            transform: translate(0, -50%) scale(1.2);
+        }
+    }
+
+    &__more {
+        position: absolute;
+        right: 16px;
+        top: calc(50% + 70px);
+        width: 161px;
+        height: 96px;
+        box-shadow: 2px 4px 15px rgba(62, 67, 104, 0.15);
+        background: #fff;
+        border-radius: 12px;
+        padding: 18px 18px 18px 10px;
+        box-sizing: border-box;
+        display: none;
+        z-index: 10;
+        transform: translate(0, -50%);
+
+        &.active {
+            display: block;
+        }
+    }
+
+    &__more-btn {
+        display: flex;
+        align-items: center;
+        margin-bottom: 13px;
+        cursor: pointer;
+        transition: all 200ms;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+
+    &__more-ico {
+        margin-right: 10px;
+    }
+}
+
+.all-tickets {
+    display: flex;
+    align-items: center;
+
+    &__text {
+        font-size: 18px;
+        line-height: 22px;
+        color: #868686;
+        margin-right: 16px;
+    }
+
+    &__select {
+        border: 2px solid #f4f5fd;
+        box-sizing: border-box;
+        border-radius: 8px;
+        padding: 6px 10px 6px 15px;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        color: #141414;
+        box-sizing: border-box;
+    }
+}
+
+.paginations {
+    display: flex;
+    justify-content: space-around;
+
+    &__btn {
+        max-width: 10px;
+
+        &_right {
+            margin-left: 12px;
+        }
+
+        &_left {
+            margin-right: 12px;
+            opacity: 0.4;
+        }
+    }
+
+    &__pages {
+        display: flex;
+        align-items: center;
+    }
+
+    &__page-number {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 200ms;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &.active {
+            background: #556bf4;
+            color: #fff;
+        }
+    }
+}

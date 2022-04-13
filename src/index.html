@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=0">
+
+    <% if (isProduction) { %>
+        <link href="<%- assetsPath %>/css/app.css?v=<%- buildVersion %>" rel="stylesheet">
+    <% } %>
+
+    <title></title>
+    <meta name="description" content="">
+
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        window.STATIC_PATH = '<%- assetsPath %>/static';
+        window.SERVER_TIME = <%- serverTime %>;
+        window.BUNKER = <%= bunkerJson %>;
+    </script>
+
+    <% if (isProduction) { %>
+        <script src="<%- assetsPath %>/js/vendor.js?v=<%- buildVersion %>"></script>
+        <script src="<%- assetsPath %>/js/app.js?v=<%- buildVersion %>"></script>
+    <% } %>
+</body>
+</html>
