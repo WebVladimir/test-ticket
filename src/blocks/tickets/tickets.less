@@ -80,10 +80,6 @@
     &__all-tickets {
         max-width: 270px;
     }
-
-    &__paginations {
-        max-width: 236px;
-    }
 }
 
 .search {
@@ -293,10 +289,11 @@
 
 .paginations {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 
     &__btn {
-        max-width: 10px;
+        width: 9px;
+        flex-shrink: 0;
 
         &_right {
             margin-left: 12px;
@@ -304,6 +301,9 @@
 
         &_left {
             margin-right: 12px;
+        }
+
+        &_block {
             opacity: 0.4;
         }
     }
