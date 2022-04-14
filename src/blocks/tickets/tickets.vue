@@ -8,14 +8,14 @@
                             <div
                                 class="tickets__status-text tickets__status-text_active"
                             >
-                                Невзятые(34)
+                                Невзятые({{ calculatesCountStatus('not-taken') }})
                             </div>
                         </div>
                         <div class="tickets__status">
-                            <div class="tickets__status-text">Взятые(12)</div>
+                            <div class="tickets__status-text">Взятые({{ calculatesCountStatus('taken')}})</div>
                         </div>
                         <div class="tickets__status">
-                            <div class="tickets__status-text">Закрытые(25)</div>
+                            <div class="tickets__status-text">Закрытые({{ calculatesCountStatus('closed')}})</div>
                         </div>
                     </div>
                     <div class="tickets__search">
@@ -167,10 +167,22 @@ export default {
             activeLink: null,
             tickets,
             current: 1,
-            searchFilter: ""
+            searchFilter: "",
+            ticketNotTaken: []
         };
     },
+    mounted() {
+    },
     methods: {
+        calculatesCountStatus(status) {
+            let valueOnStatus = [];
+            this.tickets.forEach(element => {
+                if (element.status == status) {
+                    valueOnStatus.push(element);
+                }
+            });
+            return valueOnStatus.length
+        },
         addActive(index) {
             if (this.activeLink === index) {
                 this.activeLink = null;
@@ -231,13 +243,13 @@ export default {
     },
     computed: {
         filteredMovies() {
-      if (this.searchFilter) {
-        return this.tickets.filter(item => {
-            return item.theme.includes(this.searchFilter);
-        });
-      }
-      return this.tickets
-    }
+            if (this.searchFilter) {
+                return this.tickets.filter(item => {
+                    return item.theme.includes(this.searchFilter);
+                });
+            }
+            return this.tickets
+        },
     }
 };
 </script>
